@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f71df05-d8fb-42b8-a99b-f3a7397236bc" name="Default Changelist" comment="" />
+    <list default="true" id="8f71df05-d8fb-42b8-a99b-f3a7397236bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +17,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -23,6 +28,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZfvgTrPvaDjkKBR0PWsoB6i4KH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -79,7 +85,7 @@
       <workItem from="1585243186824" duration="5116000" />
       <workItem from="1585643193777" duration="15164000" />
       <workItem from="1585740884708" duration="8774000" />
-      <workItem from="1585825843410" duration="385000" />
+      <workItem from="1585825843410" duration="973000" />
     </task>
     <servers />
   </component>
@@ -107,6 +113,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1306" y="398" width="432" height="483" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585760651248" />
+    <state x="187" y="89" key="MergeDialog" timestamp="1585827621910">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="187" y="89" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585827621910" />
+    <state x="671" y="236" width="575" height="567" key="MultipleFileMergeDialog" timestamp="1585827621916">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="671" y="236" width="575" height="567" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585827621916" />
     <state x="336" y="223" width="1247" height="593" key="new project wizard" timestamp="1585649684534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

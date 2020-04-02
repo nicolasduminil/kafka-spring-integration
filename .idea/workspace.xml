@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8f71df05-d8fb-42b8-a99b-f3a7397236bc" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZfvgTrPvaDjkKBR0PWsoB6i4KH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../scripts/iris" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.cision.tests.kafka.consumer" />
+      <recent name="com.cision.tests.kafka.producer" />
+      <recent name="com.cision.tests.kafka.producer.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spring-kafka-app/src/main/resources/scripts" />
+      <recent name="$PROJECT_DIR$/spring-kafka-app/src/main/resources" />
+      <recent name="$PROJECT_DIR$/spring-kafka-app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spring-kafka-app/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SpringKafkaIntegrationApp">
+    <configuration name="SpringKafkaIntegrationApp (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-kafka-integration" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.simplex_software.tests.kafka.integration.SpringKafkaIntegrationApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringKafkaIntegrationApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-kafka-integration" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cision.tests.kafka.integration.SpringKafkaIntegrationApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f71df05-d8fb-42b8-a99b-f3a7397236bc" name="Default Changelist" comment="" />
+      <created>1585243073345</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585243073345</updated>
+      <workItem from="1585243186824" duration="5116000" />
+      <workItem from="1585643193777" duration="15164000" />
+      <workItem from="1585740884708" duration="8774000" />
+      <workItem from="1585825843410" duration="385000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="769" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1585247040754">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585247040754" />
+    <state x="694" y="304" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1585248152801">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="694" y="304" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585248152801" />
+    <state x="473" y="438" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585651571713">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="473" y="438" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585651571713" />
+    <state x="700" y="380" width="741" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1585248154068">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="700" y="380" width="741" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1585248154068" />
+    <state x="1306" y="398" width="432" height="483" key="FileChooserDialogImpl" timestamp="1585760651248">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1306" y="398" width="432" height="483" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585760651248" />
+    <state x="336" y="223" width="1247" height="593" key="new project wizard" timestamp="1585649684534">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="336" y="223" width="1247" height="593" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585649684534" />
+  </component>
+</project>

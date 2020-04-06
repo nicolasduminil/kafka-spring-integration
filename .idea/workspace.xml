@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f71df05-d8fb-42b8-a99b-f3a7397236bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -85,7 +88,9 @@
       <workItem from="1585243186824" duration="5116000" />
       <workItem from="1585643193777" duration="15164000" />
       <workItem from="1585740884708" duration="8774000" />
-      <workItem from="1585825843410" duration="973000" />
+      <workItem from="1585825843410" duration="9402000" />
+      <workItem from="1585923213743" duration="3861000" />
+      <workItem from="1586175698165" duration="3903000" />
     </task>
     <servers />
   </component>
@@ -125,5 +130,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="336" y="223" width="1247" height="593" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585649684534" />
+    <state x="624" y="238" key="run.anything.popup" timestamp="1585925566180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="624" y="238" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585925566180" />
   </component>
 </project>

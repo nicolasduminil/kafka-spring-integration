@@ -11,6 +11,12 @@
   <artifactId>spring-kafka-producer</artifactId>
   <name>Spring Kafka Producer</name>
   <description>This project demonstrates a Kafka messages producer with Spring Boot</description>
+  <dependencies>
+    <dependency>
+      <groupId>fr.simplex-software.tests</groupId>
+      <artifactId>spring-kafka-model</artifactId>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>${project.artifactId}</finalName>
   </build>

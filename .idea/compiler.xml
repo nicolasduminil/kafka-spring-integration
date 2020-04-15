@@ -2,10 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-kafka-model" />
         <module name="spring-kafka-app" />
         <module name="spring-kafka-producer" />
         <module name="spring-kafka-consumer" />
@@ -17,6 +19,7 @@
       <module name="spring-kafka-app" options="-parameters" />
       <module name="spring-kafka-consumer" options="-parameters" />
       <module name="spring-kafka-integration" options="-parameters" />
+      <module name="spring-kafka-model" options="-parameters" />
       <module name="spring-kafka-producer" options="-parameters" />
     </option>
   </component>

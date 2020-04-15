@@ -248,9 +248,292 @@ To exercice the presented infrastructure, just proceed as follows:
         git clone https://github.com/nicolasduminil/kafka-spring-integration.git  
 2. Build the project:       
 
-        mvn clean install
+        mvn -DskipTests clean install
 3. Check wether the Docker containers are up and running:        
 
         docker ps
-You'll se the following listing:        
+    You'll see the following listing:        
+
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS                            PORTS                                              NAMES
+        eabab85946fe        landoop/kafka-topics-ui:0.9.4           "/run.sh"                6 seconds ago       Up 5 seconds                      0.0.0.0:8000->8000/tcp                             kafka-ui
+        3861367a32a3        hlebalbau/kafka-manager:stable          "/kafka-manager/bin/…"   7 seconds ago       Up 5 seconds                      0.0.0.0:9000->9000/tcp                             kafka-manager
+        2f8456c34e6e        confluentinc/cp-kafka-rest:5.3.1        "/etc/confluent/dock…"   7 seconds ago       Up 6 seconds                      0.0.0.0:8082->8082/tcp                             kafka-rest-proxy
+        45ddb2275aab        elkozmon/zoonavigator:0.7.1             "./run.sh"               8 seconds ago       Up 7 seconds (health: starting)   9000/tcp                                           zoonavigator
+        969cd4d28c7d        confluentinc/cp-kafka:5.3.1             "/etc/confluent/dock…"   8 seconds ago       Up 6 seconds                      0.0.0.0:9092->9092/tcp, 0.0.0.0:29092->29092/tcp   kafka-broker
+        b63e9dbaa57b        confluentinc/cp-schema-registry:5.3.1   "/etc/confluent/dock…"   8 seconds ago       Up 8 seconds                      0.0.0.0:8081->8081/tcp                             schema-registry
+        03711a4deba8        confluentinc/cp-zookeeper:5.3.1         "/etc/confluent/dock…"   9 seconds ago       Up 8 seconds                      2888/tcp, 0.0.0.0:2181->2181/tcp, 3888/tcp         zookeeper
+4. Now that all our infrastructure seems to be running, let's start using it. 
+Let's create some Kafka topics and publish/subscribe messages to/from them.
+
+        nicolas@kfx:~/workspace/spring-kafka-integration$ docker exec -ti kafka-broker /bin/bash
+        root@kafka:/# cd scripts
+        root@kafka:/scripts# ./kafka-test.sh
+        Created topic test.
+        Topic:test      PartitionCount:1        ReplicationFactor:1     Configs:
+                Topic: test     Partition: 0    Leader: 1       Replicas: 1     Isr: 1
+        >>>Test message 1
+        Test message 2
+        [2020-04-06 14:10:02,809] ERROR Error processing message, terminating consumer process:  (kafka.tools.ConsoleConsumer$)
+        org.apache.kafka.common.errors.TimeoutException
+        Processed a total of 2 messages
+        Topic test is marked for deletion.
+        Note: This will have no impact if delete.topic.enable is not set to true.
+        root@kafka:/scripts# 
+    Here we are first connecting to our Docker container running the Kafka broker.
+    Then, in the ``scripts`` subdirectory, there is a *shell* script named 
+    ``kafka-test.sh``. Running this script will create a topic named ``Test``. 
+    Once this topic created, the script will publish two test messages on it, 
+    after which these two test messages will be consumed and displayed. Finally, 
+    the test topic is removed. Here is the source of the script: 
+    
+        root@kafka:/scripts#  cat kafka-test.sh
+        kafka-topics --create --zookeeper zookeeper:2181/kafka --replication-factor 1 --partitions 1 --topic test
+        kafka-topics --describe --zookeeper zookeeper:2181/kafka --topic test
+        kafka-console-producer --broker-list localhost:29092 --topic test <<EOF
+        Test message 1
+        Test message 2
+        EOF
+        kafka-console-consumer --topic test --from-beginning --timeout-ms 5000 --bootstrap-server localhost:29092
+        kafka-topics --delete --zookeeper zookeeper:2181/kafka --topic test 
+        root@kafka:/scripts#
+    As you may see, Kafka comes out-of-the-box with a CLI having commands like 
+    ``kafka-topics``, ``kafka-console-producer`` and ``kafka-console-consumer``
+    which allow to create/handle topics and to produce/consume messages.
+    
+5.  Let's try to probe now ZooKeeper by using the ZooKeeper Navigator. Get the 
+IP address of the ``zoonavigator`` container and fire your browser on the TCP 
+port number 9000.            
+
+        nicolas@kfx:~/workspace/spring-kafka-integration$ docker exec -ti zoonavigator hostname -I
+        172.20.0.3 
+        nicolas@kfx:~/workspace/spring-kafka-integration$ open http://172.20.0.3:900
         
+    ![zoonavigator](./zoonavigator.png)    
+    
+6. The next add-on that we need to probe is the Schema Registry.    
+
+        nicolas@kfx:~/workspace/spring-kafka-integration$ docker exec -ti schema-registry hostname -I
+        172.20.0.4 
+        nicolas@kfx:~/workspace/spring-kafka-integration$ open 172.20.0.4:8081
+        
+    ![schema-registry](./schema-registry2.png)
+    
+7. Let's do the same for Kafka Topics UI.
+
+        nicolas@kfx:~/workspace/spring-kafka-integration$ docker exec -ti kafka-broker /bin/bash
+        root@kafka:/# cd scripts
+        root@kafka:/scripts# ls -al
+        total 16
+        drwxrwxr-x 2 1000 1000 4096 Apr  6 14:07 .
+        drwxr-xr-x 1 root root 4096 Apr  6 14:08 ..
+        -rwxrwxr-x 1 1000 1000  731 Apr  1 13:39 kafka-test-topics.sh
+        -rwxrwxr-x 1 1000 1000  455 Apr  6 14:07 kafka-test.sh
+        root@kafka:/scripts# ./kafka-test-topics.sh 
+        Created topic test1.
+        >>>Created topic test2.
+        >>>Created topic test3.
+        >>>                
+        root@kafka:/scripts# exit
+        exit
+        nicolas@kfx:~/workspace/spring-kafka-integration$ docker exec -ti kafka-ui ip addr
+        1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+            link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+            inet 127.0.0.1/8 scope host lo
+               valid_lft forever preferred_lft forever
+        54: eth0@if55: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+            link/ether 02:42:ac:14:00:08 brd ff:ff:ff:ff:ff:ff
+            inet 172.20.0.8/16 brd 172.20.255.255 scope global eth0
+               valid_lft forever preferred_lft forever
+        nicolas@kfx:~/workspace/spring-kafka-integration$ open http://172.20.0.8:8000
+    Here we are first connecting again to our Kafka Broker container and we 
+    execute the script ``scripts/kafka-test-topics.sh``. This script will create
+    some topics, exactly the same way as we did at the #4. We need to do that in
+    order to probe Kafka Topics UI. Once the script terminated and the topics 
+    created, we get the IP address of the Kafka Topics UI container and then we 
+    fire our browser to the Kafka Topics UI URL. The following screen will 
+    present to us: 
+    
+    ![topics-ui](./topics-ui.png)
+    
+    Here we can see our test topics named ``test1``, ``test2`` and ``test3`` 
+    that were created by the script we ran previously. If you press the button
+    labeled ``System Topics`` on the top of the scree, you'll se other two system 
+    topics. In total, 5 topics, as shown in the right pane of the screen.
+    You can also see that there is only one Kafka broker and that the Kafka 
+    REST Proxy is configured as well.
+    
+ 8. Last add-on to probe is Kafka Manager and this is let as an exercice for the
+  reader.
+  
+## The Spring Cloud Integration
+Now that all our docker services are up and running, let's look at the Java code.
+Our project is using Spring Boot Modules and, as such, it is structured is three
+modules, as follows:
+* a master maven module named ``spring-kafka-integration`` of packaging type ``pom``
+* a main module named ``spring-kafka-app`` containg the Spring Boot application 
+main class, together with a REST controller allowing to invoke the application's
+API.
+* a module named ``spring-kafka-producer`` implementing the Kafka messaging 
+production logic
+.
+* a module named ``spring-kafka-consumer`` implementing the Kafka messaging
+consumption logic.
+
+### Building and Testing
+In order to build the project first cd into the main directory and run the maven 
+build, as follows:
+    
+    cd <root-directory>
+    mvn -DskipTests clean install
+    
+Once the commands above executed, all the required containers must be up and 
+running, as explained previously. Now you can test the services.
+
+In order to perform testing, you need to invoke an API exposed by the application.
+This may be done in several ways but one of the most convenient one is through 
+Swagger. For that, you need to start the Spring Boot container, as follows:
+
+    mvn -DskipTests -pl spring-kafka-app spring-boot:run
+
+Once the application starts, going at ``http://localhost:8080``, you'll see the 
+following API:
+![swagger](./kafka5.png)     
+
+The API shown in the figure above is called ``paris-data-controller`` and exposes
+endpoints allowing to retrieve information concerning the public transport in 
+Paris. The API uses a set of web services, made available by Pierre GRIMAUD 
+(``https://fr.linkedin.com/in/pgrimaud``) under an open source licence. These
+services, developed in Python and available at ``https://api-ratp.pierre-grimaud.fr/v4``
+and they are called by our API.
+
+So, you can exercice now the API using the Swagger GUI, by clicking on the 
+"Try it out" button, after having unfolded the operations, by clicking on the 
+arrow on the left. For the purposes of our demo, we only provide one operation,
+a GET which retrieves the stations available on a given public transport line.
+Two parameters are required, the type od transport, for example SUBWAY, and the
+line id, in our case 8, for the subway line M8. Here is how your test should 
+look like:
+![tryit](./tryit.png)
+
+Clicking on the Execute button the test will be ran and you'l get the following
+result:
+![tryit2](./tryit2.png) 
+
+Now, looking at your shell screen where you started the Spring Boot application,
+you'll see the listing below:
+![shell](./shell.png)
+
+This listing shows that our Swagger GUI invokes our API by making a GET request 
+using the URI ```/paris-data/destinations/SUBWAY/8```. Our API will, in turn, 
+make a GET request at the end point 
+``https://api-ratp.pierre-grimaud.fr/v4/destinations/metros/8`` to retrieve the 
+required data, i.e. the subway stations on the M8 line, which are Pointe du Lac, 
+platform A and Ballard, platform R.
+
+But more interesting is that, once the remote web service endpoint is invoked and
+the result returned, this returned will be published on a Kafka topic, as shown
+in the log by the following message:
+
+    ### Have got GetAllDestinationsResponse(result=Result(destinations=[Destination(stationName=Pointe du Lac, platformId=A), Destination(stationName=Balard, platformId=R)]), metadata=Metadata(call=GET /destinations/metros/8, date=2020-04-15T14:53:47+02:00, version=4.0))
+
+This message is further consumed as shown below:
+
+    ### KafkaConsumer.doConsume(): We got a message 
+            GetAllDestinationsResponse(result=Result(destinations=[Destination(stationName=Pointe du Lac, platformId=A), Destination(stationName=Balard, platformId=R)]), metadata=Metadata(call=GET /destinations/metros/8, date=2020-04-15T14:53:47+02:00, version=4.0))
+            
+These messages are displayed by the Kafka Producer and, respectivelly, the Kafka
+Consumer, showing that the message has been successfully sent and received. You can
+further analyze what exactly happened by using the kafka-topics-ui service, as shown 
+previously. Hence, going at ``http://192.168.96.6:8000``, we'll see a Kafka topic
+named parisData having the following content:
+![topics](./topics.png)    
+
+Here we can see our message that have been produced to the topic parisData and 
+further consumed.
+
+## Show Me the Code
+We just have demonstrated a Spring Boot application using Spring Cloud Streams such 
+that to produce and consume messages to/from Kafka topics. But how everything 
+works here ? Let's look at the code.
+
+First, the main class is annotated as follows:
+
+    @EnableBinding({Source.class, Sink.class})
+    
+This annotation has the effect of binding the Spring Cloud Stream framework to 
+Kafka messaging system. This binding operation is performed on the behalf of a 
+communication channel. Spring Cloud Stream makes available two standard channels,
+named ``Source`` and, respectivelly, ``Sink``, the first aiming at publishing and
+the last at subscribing to messages. Of course, channels may and shall be 
+customized, instead of using the Spring Cloud Stream standard classes, which 
+only cover a limited diversity of use cases. But for simplicity sake we choose
+here to use a simpler and out-of-the-box solution instead of a more specific one.
+
+The following listing shows the ``KafkaProducer`` class.
+
+    @Component
+    @Slf4j
+    public class KafkaProducer
+    {
+      private Source source;
+    
+      @Autowired
+      public KafkaProducer(Source source)
+      {
+        this.source = source;
+      }
+    
+      public void publishKafkaMessage(GetAllDestinationsResponse msg)
+      {
+        log.debug("### KafkaProducer.publisKafkaMessage(): Sending message to Kafka topic");
+        source.output().send(MessageBuilder.withPayload(msg).build());
+      }
+    }
+    
+That's all. The only thing you need here is to inject an instance of the 
+``Source`` which is used further, in the method `publishKafkaMessage()` to
+produce messages. The `KafkaConsumer` class is very simple as well:
+
+    @Component
+    @Slf4j
+    public class KafkaConsumer
+    {
+      @StreamListener(Sink.INPUT)
+      public void doConsume(@Payload GetAllDestinationsResponse msg)
+      {
+        log.debug ("### KafkaConsumer.doConsume(): We got a message \n\t{}", msg);
+      }
+    }
+    
+The `doConsume()` method needs only to be annotated with the `@StreamListener` 
+annotation. The class Sink is configured such that to have an input channel,
+named INPUT. Then using this very simple construct, the method `doConsume()`
+is listening on the input channel of the Sink service and, whenever a 
+message is received, it will get executed. In our case the execution is 
+simple as it just logs a message in the log file.
+
+The code above is every thing you need to implement complex Kafka messaging.
+However, at this point, things might seem a bit like magic 'cause we didn't 
+show anything concerning the Kafka brokers, the topics, etc. There is 
+another good news as handling all these details could de done automatically,
+only based on a couple of properties, like shown bellow in the 
+application.properties file: 
+
+    spring.application.name=spring-kafka-integration
+    spring.cloud.stream.kafka.binder.brokers=192.168.96.3:9092
+    spring.cloud.stream.bindings.input.destination=parisData
+    spring.cloud.stream.bindings.input.contentType=application/json
+    spring.cloud.stream.bindings.output.destination=parisData
+    spring.cloud.stream.bindings.output.contentType=application/json
+    
+These proprties are doing the mapping between the `Source` and `Sink` classes
+of Spring Cloud Streams and a Kafka broker and topic. As you can see, the 
+Kafka broker IP address and TCP port are configured, as well as the Kafka topic 
+name associated to the input and output channels.
+
+Using this simple use case you can implement services communicating each other 
+in an asynchrounous manner, using messaging. Spring Cloud Stream acts a middleman
+for the services while the message broker is used as an abstraction layer over 
+the messaging system.
+
+Enjoy !                 

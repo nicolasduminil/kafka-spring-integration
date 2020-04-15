@@ -2,9 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f71df05-d8fb-42b8-a99b-f3a7397236bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/controllers/ParisDataController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/controllers/SwaggerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/controllers/impl/ParisDataControllerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-app/src/test/java/fr/simplex_software/tests/kafka/integration/TestParisDataControllerIT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-model/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-model/src/main/java/fr/simplex_software/tests/kafka/model/Destination.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-model/src/main/java/fr/simplex_software/tests/kafka/model/GetAllDestinationsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-model/src/main/java/fr/simplex_software/tests/kafka/model/Metadata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-model/src/main/java/fr/simplex_software/tests/kafka/model/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-kafka-model/src/main/java/fr/simplex_software/tests/kafka/model/TransportType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/spring-kafka-app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/src/main/docker/spring-kafka-app.jar" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/docker/spring-kafka-app.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/SpringKafkaIntegrationApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/SpringKafkaIntegrationApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/src/main/resources/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/resources/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/src/main/resources/scripts/kafka-test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/src/main/resources/scripts/kafka-test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/classes/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/classes/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/classes/fr/simplex_software/tests/kafka/integration/SpringKafkaIntegrationApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/classes/fr/simplex_software/tests/kafka/integration/SpringKafkaIntegrationApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/classes/scripts/kafka-test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/classes/scripts/kafka-test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/spring-kafka-app.jar" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/spring-kafka-app.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-app/target/spring-kafka-app.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-app/target/spring-kafka-app.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-consumer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/spring-kafka-consumer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/src/main/java/fr/simplex_software/tests/kafka/consumer/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-consumer/src/main/java/fr/simplex_software/tests/kafka/consumer/KafkaConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/src/main/java/fr/simplex_software/tests/kafka/consumer/TestKafkaChannel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/target/classes/fr/simplex_software/tests/kafka/consumer/KafkaConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-consumer/target/classes/fr/simplex_software/tests/kafka/consumer/KafkaConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/target/classes/fr/simplex_software/tests/kafka/consumer/TestKafkaChannel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-consumer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-consumer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-consumer/target/spring-kafka-consumer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-consumer/target/spring-kafka-consumer.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-producer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-producer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-producer/spring-kafka-producer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-producer/src/main/java/fr/simplex_software/tests/kafka/producer/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-producer/src/main/java/fr/simplex_software/tests/kafka/producer/KafkaProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-producer/target/classes/fr/simplex_software/tests/kafka/producer/KafkaProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-producer/target/classes/fr/simplex_software/tests/kafka/producer/KafkaProducer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-kafka-producer/target/spring-kafka-producer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/spring-kafka-producer/target/spring-kafka-producer.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,49 +59,47 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1ZfvgTrPvaDjkKBR0PWsoB6i4KH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../scripts/iris" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/spring-kafka-consumer/src/main/resources" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spring-kafka-app/src" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.cision.tests.kafka.consumer" />
       <recent name="com.cision.tests.kafka.producer" />
       <recent name="com.cision.tests.kafka.producer.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spring-kafka-consumer/src/main/resources" />
       <recent name="$PROJECT_DIR$/spring-kafka-app/src/main/resources/scripts" />
       <recent name="$PROJECT_DIR$/spring-kafka-app/src/main/resources" />
       <recent name="$PROJECT_DIR$/spring-kafka-app" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/spring-kafka-app/src" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SpringKafkaIntegrationApp">
@@ -90,18 +133,31 @@
       <workItem from="1585740884708" duration="8774000" />
       <workItem from="1585825843410" duration="9402000" />
       <workItem from="1585923213743" duration="3861000" />
-      <workItem from="1586175698165" duration="3903000" />
+      <workItem from="1586175698165" duration="15711000" />
+      <workItem from="1586253462173" duration="20839000" />
+      <workItem from="1586525499806" duration="14000" />
+      <workItem from="1586525532279" duration="4190000" />
+      <workItem from="1586613858673" duration="2108000" />
+      <workItem from="1586617696207" duration="286000" />
+      <workItem from="1586617998508" duration="778000" />
+      <workItem from="1586618787671" duration="8037000" />
+      <workItem from="1586863821653" duration="14595000" />
+      <workItem from="1586945847367" duration="10984000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="769" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1585247040754">
+    <state x="443" y="97" width="1032" height="844" key="#Project_Structure" timestamp="1586618546326">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585247040754" />
+    <state x="443" y="97" width="1032" height="844" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1586618546326" />
+    <state x="769" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1586871670728">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1586871670728" />
     <state x="694" y="304" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1585248152801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -114,10 +170,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="700" y="380" width="741" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1585248154068" />
-    <state x="1306" y="398" width="432" height="483" key="FileChooserDialogImpl" timestamp="1585760651248">
+    <state x="396" y="0" width="1127" height="1044" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586865435962">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1306" y="398" width="432" height="483" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585760651248" />
+    <state x="396" y="0" width="1127" height="1044" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586865435962" />
+    <state x="1306" y="398" width="432" height="483" key="FileChooserDialogImpl" timestamp="1586618540847">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1306" y="398" width="432" height="483" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586618540847" />
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1586617310442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586617310442" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1586617310442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586617310442" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1586617310442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586617310442" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1586617310442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586617310442" />
     <state x="187" y="89" key="MergeDialog" timestamp="1585827621910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -126,10 +202,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="671" y="236" width="575" height="567" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585827621916" />
-    <state x="336" y="223" width="1247" height="593" key="new project wizard" timestamp="1585649684534">
+    <state x="457" y="155" key="SettingsEditor" timestamp="1586864515313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="336" y="223" width="1247" height="593" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585649684534" />
+    <state x="457" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586864515313" />
+    <state x="336" y="223" width="1247" height="593" key="new project wizard" timestamp="1586189498197">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="336" y="223" width="1247" height="593" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1586189498197" />
     <state x="624" y="238" key="run.anything.popup" timestamp="1585925566180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

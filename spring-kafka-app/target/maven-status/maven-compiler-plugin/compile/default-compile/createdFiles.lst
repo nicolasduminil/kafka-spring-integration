@@ -1,1 +1,5 @@
 fr/simplex_software/tests/kafka/integration/SpringKafkaIntegrationApp.class
+fr/simplex_software/tests/kafka/integration/controllers/impl/ParisDataControllerImpl.class
+fr/simplex_software/tests/kafka/integration/controllers/SwaggerController.class
+fr/simplex_software/tests/kafka/integration/controllers/ParisDataController.class
+fr/simplex_software/tests/kafka/integration/config/SwaggerConfig.class

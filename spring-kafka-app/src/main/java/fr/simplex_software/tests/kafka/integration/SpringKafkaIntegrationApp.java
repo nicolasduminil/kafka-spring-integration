@@ -4,9 +4,11 @@ import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.cloud.stream.annotation.*;
 import org.springframework.cloud.stream.messaging.*;
+import org.springframework.context.annotation.*;
 
 @SpringBootApplication
-@EnableBinding(Source.class)
+@ComponentScan(basePackages = {"fr.simplex_software.tests.kafka"})
+@EnableBinding({Source.class, Sink.class})
 public class SpringKafkaIntegrationApp
 {
   public static void main(String[] args)

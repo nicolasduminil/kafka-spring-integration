@@ -1,1 +1,5 @@
+/home/nicolas/workspace/spring-kafka-integration/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/controllers/SwaggerController.java
+/home/nicolas/workspace/spring-kafka-integration/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/controllers/impl/ParisDataControllerImpl.java
+/home/nicolas/workspace/spring-kafka-integration/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/controllers/ParisDataController.java
+/home/nicolas/workspace/spring-kafka-integration/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/config/SwaggerConfig.java
 /home/nicolas/workspace/spring-kafka-integration/spring-kafka-app/src/main/java/fr/simplex_software/tests/kafka/integration/SpringKafkaIntegrationApp.java

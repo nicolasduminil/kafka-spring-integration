@@ -1,7 +1,17 @@
 version: '3.7'
+networks:
+  kafka-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.96.0/20
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:5.3.1
+    networks:
+      kafka-network:
+        ipv4_address: 192.168.96.2
     hostname: zookeeper
     container_name: zookeeper
     ports:
@@ -16,27 +26,33 @@ services:
     volumes:
       - /var/lib/zookeeper:/var/lib/zookeeper
   kafka:
-    image: confluentinc/cp-kafka:5.3.1
-    hostname: kafka
-    container_name: kafka-broker
-    ports:
-      - "29092:29092"
-      - "9092:9092"
-    depends_on:
-      - zookeeper
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181/kafka
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://kafka:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
-    volumes:
-      - /var/lib/kafka:/var/lib/kafka
-      - ./scripts/:/scripts
+   image: confluentinc/cp-kafka:5.3.1
+   hostname: kafka
+   networks:
+     kafka-network:
+       ipv4_address: 192.168.96.3
+   container_name: kafka-broker
+   ports:
+     - "29092:29092"
+     - "9092:9092"
+   depends_on:
+     - zookeeper
+   environment:
+     KAFKA_BROKER_ID: 1
+     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181/kafka
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://192.168.96.3:9092
+     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+     KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+   volumes:
+     - /var/lib/kafka:/var/lib/kafka
+     - ./scripts/:/scripts
   schema-registry:
     image: confluentinc/cp-schema-registry:5.3.1
     container_name: schema-registry
+    networks:
+      kafka-network:
+        ipv4_address: 192.168.96.4
     depends_on:
       - zookeeper
     ports:
@@ -48,6 +64,9 @@ services:
   kafka-rest-proxy:
     image: confluentinc/cp-kafka-rest:5.3.1
     hostname: kafka-rest-proxy
+    networks:
+      kafka-network:
+        ipv4_address: 192.168.96.5
     container_name: kafka-rest-proxy
     depends_on:
       - zookeeper
@@ -67,6 +86,9 @@ services:
     container_name: kafka-ui
     depends_on:
       - kafka-rest-proxy
+    networks:
+      kafka-network:
+        ipv4_address: 192.168.96.6
     ports:
       - 8000:8000
     environment:
@@ -77,12 +99,18 @@ services:
     container_name: zoonavigator
     depends_on:
       - zookeeper
+    networks:
+      kafka-network:
+        ipv4_address: 192.168.96.7
     environment:
       HTTP_PORT: 9000
       AUTO_CONNECT_CONNECTION_STRING: zookeeper:2181
   kafka_manager:
     image: hlebalbau/kafka-manager:stable
     container_name: kafka-manager
+    networks:
+      kafka-network:
+        ipv4_address: 192.168.96.8
     ports:
       - "9000:9000"
     depends_on:
